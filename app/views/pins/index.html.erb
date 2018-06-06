@@ -1,0 +1,30 @@
+<%= render 'pages/home' unless user_signed_in? %>
+
+ <!-- D.Ugol Verify that pin has a user before calling email to avoid raising an ugly error message from bad data. Another way to do this is pin.user.try(:email) -->
+
+<div id="masonry-container" class="transitions-enabled infinite-scroll clearfix">
+  <% @pins.each do |pin| %>
+
+    <div class="box"> <!--D.Ugol required by masonry-->
+      <%= link_to image_tag(pin.image.url(:medium)), pin %>
+      <div class="card">
+        <%= pin.description %><br/>
+        <strong><%= pin.user.name if pin.user %></strong>
+        <% if current_user && (pin.user == current_user) %>
+          <div class="actions">
+            <%= link_to edit_pin_path(pin) do %>
+              <span><%= octicon "pencil" %> Edit </span>
+            <% end %>
+            <%= link_to pin, method: :delete, data: { confirm: "Are you sure?"} do %>
+              <span><%= octicon "trashcan" %> Delete </span>
+            <% end %>
+          </div>
+        <% end %>
+      </div> 
+    </div>  
+  <% end %> 
+</div>
+
+<div id="pins_paginate" class="container-fluid">
+  <%= will_paginate( @pins, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer ) %>
+</div>
