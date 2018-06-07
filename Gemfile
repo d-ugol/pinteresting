@@ -79,7 +79,9 @@ gem 'devise', '~> 4.4.3'
 # D.Ugol Add Paperclip for images. Add aws-sdk to store images on Amazon S3.
 
 gem 'paperclip', '~> 6.0.0'
-gem 'aws-sdk', '~> 2.3'
+#gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
+#gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk-s3', '~> 1.13.0'
 
 # D.Ugol Add the Masonry gem
 
