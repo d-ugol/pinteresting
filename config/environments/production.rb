@@ -92,5 +92,15 @@ Rails.application.configure do
   # D.Ugol Add default URL for Devise. NOTE: UPDATE THIS WITH THE FINAL HEROKU URL
   config.action_mailer.default_url_options = { host: 'dugol-omr-pin.herokuapp.com' }
 
-
+  # D.Ugol Add enviroment variables so Heroku can store images on Amazon S3.
+  
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV.fetch('S3_BUCKET_NAME'),
+      access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
+      secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+      s3_region: ENV.fetch('AWS_REGION'),
+    }
+}
 end
