@@ -80,8 +80,8 @@ gem 'devise', '~> 4.4.3'
 
 gem 'paperclip', '~> 6.0.0'
 #gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git' #this gets latest version
-#gem 'aws-sdk-s3', '~> 1.13.0'
-gem 'aws-sdk', '~> 2.3'
+gem 'aws-sdk-s3', '~> 1.13.0'
+#gem 'aws-sdk', '~> 2.3'
 
 # D.Ugol Add the Masonry gem
 
