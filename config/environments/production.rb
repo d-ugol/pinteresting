@@ -103,7 +103,7 @@ Rails.application.configure do
       s3_region: ENV.fetch('AWS_REGION'),
     }
   }
-  # D.Ugol add this for aws-sdk-s3 gem
-  Paperclip::Attachment.default_options[:s3_host_name] = 's3.us-east-2.amazonaws.com'
+  # D.Ugol add Region to host name Amazon S3
+  Paperclip::Attachment.default_options[:s3_host_name] = 's3.' + ENV.fetch('AWS_REGION') + '.amazonaws.com'
 
 end
